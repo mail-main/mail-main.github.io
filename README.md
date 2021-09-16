@@ -1,4 +1,4 @@
-# mailmain.github.io
+# mail-main.github.io
 mail-main official website <br>
 basically, <br>
 this is my website <br>
