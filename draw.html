@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html id=htmlBoi>
+    <head>
+        <title>drawing</title>
+    <style>
+        p{
+        color:white;        
+        }
+        #htmlBoi{
+            background-color:black;
+        }
+        
+        #please-enable{
+            position:absolute;
+            user-select:none;
+            z-index:-1;
+            top:100px;
+            left:50px;
+            
+        }
+        </style>
+        </head>
+    <p id="please-enable">either it's not loaded or<br>you dont have javascript enabled<br>please enable it if disabled</p>
+    
+    <button id="draw">
+    draw
+    </button>
+    
+    <button id="eraser">
+    eraser
+    </button>
+    
+    <button id="twenty">
+    brush size 20
+    </button>
+    
+    <button id="ten">
+    brush size 10
+    </button>
+    
+    <button id="five">
+    brush size 5
+    </button>
+    
+    <button id="clear">
+    clear
+    </button> <br>
+    
+    <button id="ctwohundred">
+    canvas size 200
+    </button>
+    
+    <button id="cfourhundred">
+    canvas size 400
+    </button>
+    
+    <button id="csixhundred">
+    canvas size 600
+    </button>
+    
+    <button id="ceighthundred">
+    canvas size 800
+    </button>
+    
+    <button id="conethousand">
+    canvas size 1000
+    </button>
+    
+    <p>resizing the canvas gets rid of your drawing</p>
+    
+    <script src="lib/p5.js">
+    </script>
+    <script src="lib/jquery-3.6.0.min.js">
+    </script>
+    <script>
+        
+        $( document ).ready(function() {
+            $("#please-enable").css("visibility", "hidden");
+        });
+        
+        var brushSize = 10;
+        var brushState = 0;
+        $( "#twenty" ).click(function() {
+            brushSize = 20;
+        });
+        
+        $( "#ten" ).click(function() {
+            brushSize = 10;
+        });
+        
+        $( "#five" ).click(function() {
+            brushSize = 5;
+        });
+        
+        $( "#eraser" ).click(function() {
+            brushState = 1;
+        });
+        
+        $( "#draw" ).click(function() {
+            brushState = 0;
+        });
+        function setup() {
+      createCanvas(800, 800);
+      background(255, 255, 255);
+      noStroke();
+    }
+
+    function draw() {
+      if(mouseIsPressed){
+          if (brushState === 0) {
+        fill(mouseY/2.5, mouseX/2.5, 0);
+          } else {
+              fill(255, 255, 255);
+          }
+        ellipse(mouseX, mouseY, brushSize, brushSize);
+      }
+        $( "#clear" ).click(function() {
+            background (255, 255, 255);
+        });
+        
+        $( "#ctwohundred" ).click(function() {
+            resizeCanvas(200, 200);
+            background (255, 255, 255);
+        });
+        
+        $( "#cfourhundred" ).click(function() {
+            resizeCanvas(400, 400);
+            background (255, 255, 255);
+        });
+        
+        $( "#csixhundred" ).click(function() {
+            resizeCanvas(600, 600);
+            background (255, 255, 255);
+        });
+        
+        $( "#ceighthundred" ).click(function() {
+            resizeCanvas(800, 800);
+            background (255, 255, 255);
+        });
+        
+        $( "#conethousand" ).click(function() {
+            resizeCanvas(1000, 1000);
+            background (255, 255, 255);
+        });
+    }
+    </script>
+</html>
